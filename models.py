@@ -1,3 +1,4 @@
+# imports 
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 import uuid 
@@ -8,6 +9,7 @@ from flask_login import LoginManager
 from flask_marshmallow import Marshmallow 
 import secrets
 
+# set variables for class instantiation
 login_manager = LoginManager()
 ma = Marshmallow()
 db = SQLAlchemy()
@@ -47,6 +49,7 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f'User {self.email} has been added to the database'
+
 
 class Cocktail(db.Model):
     id = db.Column(db.String, primary_key = True)

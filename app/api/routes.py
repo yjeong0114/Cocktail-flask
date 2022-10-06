@@ -6,7 +6,7 @@ api = Blueprint('api',__name__, url_prefix='/api')
 
 @api.route('/getdata')
 def getdata():
-    return {'yee3': 'haw3'}
+    return {'yee4444': 'haw4444'}
 
 @api.route('/cocktails', methods = ['POST'])
 @token_required
@@ -37,10 +37,14 @@ def get_cocktail(current_user_token):
 
 @api.route('/cocktails/<id>', methods = ['GET'])
 @token_required
-def get_single_cocktail(current_user_token, id):
-    cocktail = Cocktail.query.get(id)
-    response = cocktail_schema.dump(cocktail)
-    return jsonify(response)
+def get_contact_two(current_user_token, id):
+    fan = current_user_token.token
+    if fan == current_user_token.token:
+        cocktail = Cocktail.query.get(id)
+        response = cocktail_schema.dump(cocktail)
+        return jsonify(response)
+    else:
+        return jsonify({"message": "Valid Token Required"}),401
 
 
 @api.route('/cocktails/<id>', methods = ['POST','PUT'])
