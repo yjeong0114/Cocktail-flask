@@ -23,10 +23,10 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="{{ url_for('site.home') }}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Profile</a>
+                        <a href="{{ url_for('site.profile') }}" class="nav-link">Profile</a>
                     </li>
                     {% if current_user.is_authenticated %}
                     <li class="nav-item">
@@ -34,10 +34,10 @@
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Sign In</a>
+                        <a href="{{ url_for('auth.signin') }}" class="nav-link">Sign In</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Sign Up</a>
+                        <a href="{{ url_for('auth.signup') }}" class="nav-link">Sign Up</a>
                     </li>
                     {% endif %}
                 </ul>
